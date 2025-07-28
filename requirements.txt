@@ -1,0 +1,9 @@
+pandas
+numpy
+scikit-learn
+xgboost           # or lightgbm – pick one
+matplotlib
+shap
+streamlit
+joblib
+ipykernel
