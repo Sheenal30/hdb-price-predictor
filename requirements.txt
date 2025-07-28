@@ -1,7 +1,7 @@
 pandas
 numpy
 scikit-learn
-xgboost           # or lightgbm – pick one
+xgboost / lightgbm 
 matplotlib
 shap
 streamlit
