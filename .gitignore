@@ -1,0 +1,22 @@
+# ─── Python internals ───────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# ─── Jupyter junk ───────────────────────────────────────────────────
+.ipynb_checkpoints/
+
+# ─── OS cruft ───────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ─── Optional virtual-env folders (not using them) ─
+.venv/
+env/
+.conda/
+
+# ─── Data you’ll regenerate or don’t want public ────────────────────
+data/processed/
+
+# ─── Logs, artifacts, misc ──────────────────────────────────────────
+*.log
