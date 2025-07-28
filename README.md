@@ -15,6 +15,7 @@ pip install -r requirements.txt
 
 # launch (currently empty) notebook
 jupyter notebook notebooks/01_end_to_end.ipynb
+```
 ---
 
 ## Optional Streamlit demo (to be added later):
