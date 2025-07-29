@@ -1,10 +1,12 @@
 pandas
 numpy
 scikit-learn
-xgboost /lightgbm 
+xgboost
+lightgbm 
 matplotlib
 shap
 streamlit
 joblib
 ipykernel
+ipywidgets
 matplotlib
