@@ -1,0 +1,2 @@
+model,MAE_SGD,RMSE_SGD
+LinearRegression,83733.9,119830.1
