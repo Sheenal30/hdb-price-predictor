@@ -9,7 +9,7 @@ Goal: prove I can scope, learn, and ship an end-to-end ML project in one week fo
 
 ```bash
 # clone + install
-git clone https://github.com/<Sheenal30>/hdb-price-predictor.git
+git clone https://github.com/Sheenal30/hdb-price-predictor
 cd hdb-price-predictor
 pip install -r requirements.txt
 
