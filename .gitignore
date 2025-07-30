@@ -22,4 +22,9 @@ data/processed/
 *.log
 
 # ─── Model files ────────────────────────────────────────────────────
+*.joblib# Ignore all .joblib files by default
 *.joblib
+
+# EXCEPT for the model and feature list needed by the Streamlit app
+!models/lightgbm_comparison_model.joblib
+!models/feature_list.joblib
