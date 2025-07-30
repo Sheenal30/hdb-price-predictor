@@ -22,5 +22,4 @@ data/processed/
 *.log
 
 # ─── Model files ────────────────────────────────────────────────────
-models/random_forest_model.joblib
-models/lightgbm_comparison_model.joblibmodels/*.joblib
+*.joblib
