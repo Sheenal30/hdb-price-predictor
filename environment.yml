@@ -1,6 +1,7 @@
-name: hdb-price-predictor
+name: hdb-predictor-app-env 
 channels:
   - conda-forge
+  - defaults  
 dependencies:
   - python=3.11
   - pandas
