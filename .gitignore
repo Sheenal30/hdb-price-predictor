@@ -20,3 +20,7 @@ data/processed/
 
 # ─── Logs, artifacts, misc ──────────────────────────────────────────
 *.log
+
+# ─── Model files ────────────────────────────────────────────────────
+models/random_forest_model.joblib
+models/lightgbm_comparison_model.joblibmodels/*.joblib

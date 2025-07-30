@@ -21,6 +21,7 @@ if __name__ == "__main__":
     # ─── 3. Load ─────────────────────────────────────────────────────
     df = pd.read_csv(RAW_PATH)
     print(f"Loaded {len(df):,} rows · {df.shape[1]} columns")
+    # print(df.info())
 
     # ─── 4. Basic cleaning ───────────────────────────────────────────
     df.columns = df.columns.str.strip()          # trim spaces
@@ -84,3 +85,4 @@ if __name__ == "__main__":
     # ─── 8. Save ─────────────────────────────────────────────────────
     df.to_csv(OUT_FILE, index=False)
     print(f"✅  Saved cleaned file → {OUT_FILE}\nFinal shape: {df.shape}")
+    # df.info()

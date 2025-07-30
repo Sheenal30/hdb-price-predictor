@@ -8,5 +8,4 @@ shap
 streamlit
 joblib
 ipykernel
-ipywidgets
 matplotlib
