@@ -17,7 +17,7 @@ MAE_DISCLAIMER_TEXT = "MAE on 2024-25 hold-out data ≈ SGD 54 k. Prediction can
 # ----------------------------
 # 2.1  Load model + meta data
 # ----------------------------
-MODEL_PATH   = Path(__file__).parents[1] / "models/lightgbm_comparison_model.joblib" # <--- CHANGED TO MATCH YOUR SAVED FILENAME
+MODEL_PATH   = Path(__file__).parents[0] / "models/lightgbm_comparison_model.joblib"
 FEATURE_PATH = Path(__file__).parents[1] / "models/feature_list.joblib"    # <--- FOR THE NEWLY SAVED FEATURE LIST
 
 try:
