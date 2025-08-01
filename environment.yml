@@ -1,4 +1,4 @@
-name: hdb-predictor-app-env 
+name: hdb-predictor-app-env
 channels:
   - conda-forge
   - defaults  
@@ -13,6 +13,3 @@ dependencies:
   - joblib
   - matplotlib
   - streamlit
-  - pip
-  - pip:
-      - requests
