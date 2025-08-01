@@ -18,20 +18,15 @@ MAE_DISCLAIMER_TEXT = "MAE on 2024-25 hold-out data ≈ SGD 54 k. Prediction can
 # 2.1  Load model + meta data
 # ----------------------------
 
-# Print the current working directory for debugging
-# print(f"Current Working Directory: {os.getcwd()}")
-# print(f"File location: {__file__}")
+# --- Paths and Constants ---
+BASE_DIR = Path(__file__).resolve().parent
+MODEL_PATH = BASE_DIR / "models/lightgbm_comparison_model.joblib"
+FEATURE_PATH = BASE_DIR / "models/feature_list.joblib"
 
-MODEL_PATH   = Path(__file__).parents[0] / "models/lightgbm_comparison_model.joblib"
-# print(f"Calculated MODEL_PATH: {MODEL_PATH}") 
-FEATURE_PATH = Path(__file__).parents[0] / "models/feature_list.joblib"
-# print(f"Calculated FEATURE_PATH: {FEATURE_PATH}") 
-
+# --- Load Model and Features ---
 try:
-    # ... rest of your model loading code ...
     model = joblib.load(MODEL_PATH)
     feature_list = joblib.load(FEATURE_PATH)
-    # ... rest of your app ...
 except FileNotFoundError as e:
     st.error(f"Error loading model or feature list: {e}")
     st.stop()
@@ -80,8 +75,8 @@ if st.button("Predict resale price"):
     # ----------------------------------------------------
     # 2.3  Build one-row dataframe that matches the training columns
     # ----------------------------------------------------
-    # Use the loaded feature_list_loaded to create the template row
-    row = pd.Series(0, index=feature_list_loaded, dtype="float64")
+    # Use the loaded feature_list to create the template row
+    row = pd.Series(0, index=feature_list, dtype="float64")
 
     # Fill in numeric features
     row["floor_area_sqm"]        = floor_area
@@ -104,8 +99,8 @@ if st.button("Predict resale price"):
     # ----------------------------
     # 2.4  Make Prediction & Show Result
     # ----------------------------
-    # Use the loaded model_loaded variable to make predictions
-    price  = model_loaded.predict(X_pred)[0]
+    # Use the loaded model variable to make predictions
+    price  = model.predict(X_pred)[0]
 
     st.subheader("Estimated resale price:")
     st.success(f"SGD {price:,.0f}")
