@@ -1,3 +1,3 @@
 model,MAE_SGD,RMSE_SGD
 LinearRegression,83733.9,119830.1
-RandomForest,59963.3,79311.7
+RandomForest,60610.4,80410.8
