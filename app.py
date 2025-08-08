@@ -11,7 +11,10 @@ import joblib
 from pathlib import Path
 
 # --- Configuration ---
-MAE_DISCLAIMER_TEXT = "MAE on 2024-25 hold-out data ≈ SGD 54 k. Prediction can be ±10 % off for rare flat types or prime blocks."
+MAE_DISCLAIMER_TEXT = (
+    "MAE on 2025 hold-out data ≈ SGD 54 k. "
+    "Prediction can be ±10 % off for rare flat types or prime blocks."
+)
 
 
 # ----------------------------
@@ -29,7 +32,6 @@ except Exception as e:
     st.stop()
 
 
-
 # ----------------------------
 # 2.2  Build simple UI
 # ----------------------------
@@ -37,12 +39,12 @@ st.title("🏠 Singapore HDB Resale Price Estimator")
 
 st.markdown(
     "Fill in the flat details below.  "
-    "Model was trained on 1990-2023 resale data. "
+    "Model was trained on 1990-2025 resale data. "
     "_Prediction is for demo only — actual market prices vary!_"
 )
 
 # --- UI Input Widgets ---
-town        = st.selectbox(
+town = st.selectbox(
     "Town",
     sorted([
         "bedok","bishan","bukit_batok","bukit_merah",
@@ -54,23 +56,22 @@ town        = st.selectbox(
     ])
 )
 
-flat_type   = st.selectbox(
+flat_type = st.selectbox(
     "Flat type",
     ["2_room","3_room","4_room","5_room","executive","multi_generation"]
 )
 
-floor_area  = st.number_input(
+floor_area = st.number_input(
     "Floor area (sqm)",
     min_value=20.0, max_value=200.0, value=90.0, step=1.0
 )
 
-lease_left  = st.slider("Years of lease remaining", 0, 99, 85)
+lease_left = st.slider("Years of lease remaining", 0, 99, 85)
 
 if st.button("Predict resale price"):
     # ----------------------------------------------------
     # 2.3  Build one-row dataframe that matches the training columns
     # ----------------------------------------------------
-    # Use the loaded feature_list_loaded to create the template row
     row = pd.Series(0, index=feature_list_loaded, dtype="float64")
 
     # Fill in numeric features
@@ -94,10 +95,8 @@ if st.button("Predict resale price"):
     # ----------------------------
     # 2.4  Make Prediction & Show Result
     # ----------------------------
-    # Use the loaded model_loaded variable to make predictions
     price  = model_loaded.predict(X_pred)[0]
 
     st.subheader("Estimated resale price:")
     st.success(f"SGD {price:,.0f}")
-
     st.caption(MAE_DISCLAIMER_TEXT)
