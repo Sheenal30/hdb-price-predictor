@@ -3,7 +3,9 @@
 
 Hi, this is my first end-to-end ML project. I built a small pipeline to predict HDB resale prices in Singapore
 
-- See full model card: MODEL_CARD.md
+See Streamlit App: [App](https://sheenal30-hdb-price-predictor-app-a8yiyu.streamlit.app/)
+
+See Model Card: [MODEL_CARD.md](https://github.com/Sheenal30/hdb-price-predictor/blob/main/MODEL_CARD.md)
 
 ---
 
@@ -23,7 +25,7 @@ Hi, this is my first end-to-end ML project. I built a small pipeline to predict 
 - MAE improvement vs baseline: **29,847.69 SGD** (~**35.6%**)
 MAE = mean absolute error. On average predictions are ~SGD 54k away from the true price.
 
-See full model card: MODEL_CARD.md
+See full model card: [MODEL_CARD.md](https://github.com/Sheenal30/hdb-price-predictor/blob/main/MODEL_CARD.md)
 
 ---
 
@@ -31,6 +33,7 @@ See full model card: MODEL_CARD.md
    ```bash
    conda env create -f environment.yml
    conda activate hdb-predictor-app-env
+
 
 
 
