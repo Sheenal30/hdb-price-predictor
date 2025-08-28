@@ -33,7 +33,7 @@ st.title("🏠 HDB Resale Price Estimator")
 
 st.markdown(
     "Fill in the flat details below. Model trained on 1990-2023 data.\n"
-    "_Prediction is for demo only_"
+    "_Prediction is for demo only!_"
 )
 
 # UI Input Widgets
