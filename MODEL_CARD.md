@@ -46,7 +46,8 @@ A simple model that predicts HDB resale prices in Singapore using LightGBM
 ---
 
 ## 7. Limitations
-- Model trained on data through 2023, while the resale market grew ~10% in 2024–25, so the model may underpredict current prices
+- Model trained on data through 2023, while the resale market grew aggressively in past 2 years, so the model may underpredict current prices 
+- Streamlit predictions manually scaled +20% to account for recent market growth, affects MAE and may mask bias, recalibrate on recent hold-out
 - Location is coarse: only town-level dummies, no block or MRT distances
 - Underperforms on rare or high-value flats (executive, multi-generation)
 - SHAP analysis here is demonstrative because it used a tiny sample

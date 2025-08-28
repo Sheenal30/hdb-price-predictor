@@ -86,10 +86,8 @@ if st.button("Predict resale price"):
     X_pred = row.to_frame().T # Converting to 2D DataFrame
 
     # 5. Making a prediction and showing the result
-    # Using the loaded model_loaded variable to make predictions
-    price  = model_loaded.predict(X_pred)[0]
-
-    st.subheader("Estimated resale price:")
-    st.success(f"SGD {price:,.0f}")
-
+    price = model_loaded.predict(X_pred)[0]
+    adjusted_price = price * 1.20   # +20% uplift
+    st.subheader("Estimated resale price")
+    st.success(f"SGD {adjusted_price:,.0f}")
     st.caption(MAE_DISCLAIMER_TEXT)
