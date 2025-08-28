@@ -32,8 +32,8 @@ except Exception as e:
 st.title("🏠 HDB Resale Price Estimator")
 
 st.markdown(
-    "Fill in the flat details below. Model trained on 1990-2023 data\n"
-    "_Prediction is for demo only — actual market prices vary!_"
+    "Fill in the flat details below. Model trained on 1990-2023 data.\n"
+    "_Prediction is for demo only_"
 )
 
 # UI Input Widgets
