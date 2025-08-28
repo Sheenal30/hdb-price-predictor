@@ -56,7 +56,7 @@ flat_type   = st.selectbox(
 
 floor_area  = st.number_input(
     "Floor area (sqm)",
-    min_value=20.0, max_value=200.0, value=90.0, step=10.0
+    min_value=20.0, max_value=200.0, value=90.0, step=5.0
 )
 
 lease_left  = st.slider("Years of lease remaining", 0, 99, 85)
