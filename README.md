@@ -5,7 +5,7 @@ Hi, this is my first end-to-end ML project. I built a small pipeline to predict 
 
 ---
 
-## What this repo does:
+## What this repo does
 - Loads a cleaned HDB dataset and runs simple EDA charts
 - Trains a Linear Regression baseline so we have a transparent starting point
 - Trains tree models (RandomForest and LightGBM) to capture non linear effects
@@ -14,7 +14,7 @@ Hi, this is my first end-to-end ML project. I built a small pipeline to predict 
 
 ---
 
-## Quick results:
+## Quick results
 - Linear Regression MAE (2024–25 hold-out): **83,733.90 SGD**
 - RandomForest MAE: **59,963.25 SGD**
 - **LightGBM (best) MAE: 53,886.21 SGD**
@@ -26,9 +26,10 @@ See learning log: LEARNING_LOG.md
 
 ---
 
-## Quickstart (beginner-friendly)
+## Quickstart
 1. Create the environment:
    ```bash
    conda env create -f environment.yml
    conda activate hdb-predictor-app-env
+
 
