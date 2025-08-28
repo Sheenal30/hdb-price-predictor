@@ -54,7 +54,6 @@ A simple model that predicts HDB resale prices in Singapore using LightGBM
 ---
 
 ## 8. Environment
-1. Create env  
    ```bash
    conda env create -f environment.yml
    conda activate hdb-predictor-app-env
