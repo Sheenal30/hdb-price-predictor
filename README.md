@@ -2,6 +2,7 @@
 # HDB Price Predictor
 
 Hi, this is my first end-to-end ML project. I built a small pipeline to predict HDB resale prices in Singapore
+See full model card: MODEL_CARD.md
 
 ---
 
@@ -14,7 +15,7 @@ Hi, this is my first end-to-end ML project. I built a small pipeline to predict 
 
 ---
 
-## Quick results
+## Results
 - Linear Regression MAE (2024–25 hold-out): **83,733.90 SGD**
 - RandomForest MAE: **59,963.25 SGD**
 - **LightGBM (best) MAE: 53,886.21 SGD**
@@ -22,14 +23,13 @@ Hi, this is my first end-to-end ML project. I built a small pipeline to predict 
 MAE = mean absolute error. On average predictions are ~SGD 54k away from the true price.
 
 See full model card: MODEL_CARD.md
-See learning log: LEARNING_LOG.md
 
 ---
 
 ## Quickstart
-1. Create the environment:
    ```bash
    conda env create -f environment.yml
    conda activate hdb-predictor-app-env
+
 
 
