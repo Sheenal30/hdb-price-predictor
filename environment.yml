@@ -13,3 +13,4 @@ dependencies:
   - joblib
   - matplotlib
   - streamlit
+  - ipykernel
