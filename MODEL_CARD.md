@@ -1,5 +1,4 @@
 # Model Card — LightGBM HDB Resale Price Predictor
-**Repo:** https://github.com/Sheenal30/hdb-price-predictor
 
 ---
 
@@ -38,7 +37,7 @@ A simple model that predicts HDB resale prices in Singapore using LightGBM
 
 ---
 
-## 6. Model
+## 6. Explainability and diagnostics
 - SHAP TreeExplainer used to inspect feature effects
 - SHAP run on a very small sample (n≈20) for demo speed, saved plot at `reports/figures/shap_summary.png`
 - RandomForest Gini importances plotted at `reports/figures/rf_importance.png`
@@ -54,7 +53,7 @@ A simple model that predicts HDB resale prices in Singapore using LightGBM
 
 ---
 
-## 8. Run locally (quick)
+## 8. Environment
 1. Create env  
    ```bash
    conda env create -f environment.yml
