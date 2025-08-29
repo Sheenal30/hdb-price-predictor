@@ -9,13 +9,42 @@ import pandas as pd
 import numpy as np
 import joblib
 from pathlib import Path
+import requests
 
-# 1. Configuration
+# 1. Configuration and paths
+BASE_PATH = Path(__file__).resolve().parent
 MAE_DISCLAIMER_TEXT = "MAE on 2024-25 hold-out data ≈ SGD 54 k. Prediction can be ±10 % off for rare flat types or prime blocks."
 
+# runtime model fetcher (fallback when models missing in repo)
+MODELS_DIR = BASE_PATH / "models"
+MODELS_DIR.mkdir(parents=True, exist_ok=True)
+
+def fetch_if_missing(local_path: Path, remote_url: str):
+    if local_path.exists() and local_path.stat().st_size > 1000:
+        return True
+    try:
+        r = requests.get(remote_url, stream=True, timeout=60)
+        r.raise_for_status()
+        with open(local_path, "wb") as f:
+            for chunk in r.iter_content(1024*1024):
+                if chunk:
+                    f.write(chunk)
+        return True
+    except Exception as e:
+        try:
+            st.error(f"Failed to download {local_path.name}: {e}")
+        except Exception:
+            print(f"Failed to download {local_path.name}: {e}")
+        return False
+
+REMOTE_MODEL_URL = "https://github.com/Sheenal30/hdb-price-predictor/releases/download/v1.0/lightgbm_comparison_model.joblib"
+REMOTE_FEATURES_URL = "https://github.com/Sheenal30/hdb-price-predictor/releases/download/v1.0/feature_list.joblib"
+
+# download if missing
+fetch_if_missing(MODELS_DIR / "lightgbm_comparison_model.joblib", REMOTE_MODEL_URL)
+fetch_if_missing(MODELS_DIR / "feature_list.joblib", REMOTE_FEATURES_URL)
 
 # 2. Loading model and metadata
-BASE_PATH = Path(__file__).resolve().parent
 MODEL_PATH = BASE_PATH / "models/lightgbm_comparison_model.joblib"
 FEATURE_PATH = BASE_PATH / "models/feature_list.joblib"
 
@@ -26,10 +55,8 @@ except Exception as e:
     st.error(f"Error loading model or feature list: {e}")
     st.stop()
 
-
-
 # 3. Building simple UI
-st.title("🏠 HDB Resale Price Estimator")
+st.title("🏠 HDB Resale Price Predictor")
 
 st.markdown(
     "Fill in the flat details below. Model trained on 1990-2023 data. "
@@ -86,7 +113,7 @@ if st.button("Predict resale price"):
 
     # 5. Making a prediction and showing the result
     price = model_loaded.predict(X_pred)[0]
-    adjusted_price = price * 1.20   # +20% uplift
+    adjusted_price = price * 1.20   # +20% uplift preserved as you requested
     st.subheader("Estimated resale price")
     st.success(f"SGD {adjusted_price:,.0f}")
     st.caption(MAE_DISCLAIMER_TEXT)
