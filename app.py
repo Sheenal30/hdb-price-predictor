@@ -15,7 +15,7 @@ import requests
 BASE_PATH = Path(__file__).resolve().parent
 MAE_DISCLAIMER_TEXT = "MAE on 2024-25 hold-out data ≈ SGD 54 k. Prediction can be ±10 % off for rare flat types or prime blocks."
 
-# runtime model fetcher (fallback when models missing in repo)
+# 2.1 Model fetcher
 MODELS_DIR = BASE_PATH / "models"
 MODELS_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -40,11 +40,11 @@ def fetch_if_missing(local_path: Path, remote_url: str):
 REMOTE_MODEL_URL = "https://github.com/Sheenal30/hdb-price-predictor/releases/download/v1.0/lightgbm_comparison_model.joblib"
 REMOTE_FEATURES_URL = "https://github.com/Sheenal30/hdb-price-predictor/releases/download/v1.0/feature_list.joblib"
 
-# download if missing
+# 2.2 Download if missing
 fetch_if_missing(MODELS_DIR / "lightgbm_comparison_model.joblib", REMOTE_MODEL_URL)
 fetch_if_missing(MODELS_DIR / "feature_list.joblib", REMOTE_FEATURES_URL)
 
-# 2. Loading model and metadata
+# 2.3 Loading model and metadata
 MODEL_PATH = BASE_PATH / "models/lightgbm_comparison_model.joblib"
 FEATURE_PATH = BASE_PATH / "models/feature_list.joblib"
 
@@ -63,7 +63,7 @@ st.markdown(
     "_Prediction is for demo only!_"
 )
 
-# UI Input Widgets
+# 3. UI Input Widgets
 town        = st.selectbox(
     "Town",
     sorted([
@@ -113,7 +113,7 @@ if st.button("Predict resale price"):
 
     # 5. Making a prediction and showing the result
     price = model_loaded.predict(X_pred)[0]
-    adjusted_price = price * 1.20   # +20% uplift preserved as you requested
+    adjusted_price = price * 1.20   # +20% uplift preserved
     st.subheader("Estimated resale price")
     st.success(f"SGD {adjusted_price:,.0f}")
     st.caption(MAE_DISCLAIMER_TEXT)
